@@ -24,17 +24,14 @@ const Input = () => {
   const { data } = useContext(ChatContext);
 
   const handleSend = async () => {
-    // Check if data and currentUser are defined
     if (!data || !data.chatId || !currentUser || !currentUser.uid) {
       console.error('Chat data or current user information is missing.');
-      return; // Exit the function early if there's an issue
+      return; // Exit if there's an issue
     }
 
-    // Log the current values of text and img for debugging
     console.log('Text:', text);
     console.log('Image:', img);
 
-    // Check if text or image is present
     if (!text.trim() && !img) {
       console.error('Cannot send an empty message.');
       return; // Exit if there's nothing to send
@@ -42,7 +39,6 @@ const Input = () => {
 
     if (img) {
       const storageRef = ref(storage, uuid());
-
       const uploadTask = uploadBytesResumable(storageRef, img);
 
       uploadTask.on(
@@ -51,11 +47,9 @@ const Input = () => {
           // setErr(true);
         },
         (error) => {
-          // Handle any errors during upload
           console.error('Upload failed:', error);
         },
         async () => {
-          // Get the download URL after the upload is complete
           try {
             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
             await updateDoc(doc(db, 'chats', data.chatId), {
@@ -88,7 +82,6 @@ const Input = () => {
       [data.chatId + '.date']: serverTimestamp(),
     });
 
-    // same thing for the other user
     await updateDoc(doc(db, 'userChats', data.user.uid), {
       [data.chatId + '.lastMessage']: { text },
       [data.chatId + '.date']: serverTimestamp(),
@@ -98,6 +91,13 @@ const Input = () => {
     setImg(null);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent the default action (like adding a new line)
+      handleSend();
+    }
+  };
+
   return (
     <div className="input">
       <input
@@ -105,15 +105,16 @@ const Input = () => {
         placeholder="Type something..."
         onChange={(e) => setText(e.target.value)}
         value={text}
+        onKeyDown={handleKeyDown} // Add the key down handler here
       />
       <div className="send">
         <img src={Attach} alt="" />
         <input
           type="file"
-          style={{ display: "none" }}
+          style={{ display: 'none' }}
           id="file"
           onChange={(e) => {
-            console.log('Selected file:', e.target.files[0]); // Log the selected file
+            console.log('Selected file:', e.target.files[0]);
             setImg(e.target.files[0]);
           }}
         />

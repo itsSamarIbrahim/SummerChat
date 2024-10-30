@@ -17,7 +17,7 @@ const Navbar = () => {
         <button onClick={()=>signOut(auth)}>Logout</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Navbar;

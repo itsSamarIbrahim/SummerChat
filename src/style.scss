@@ -227,6 +227,10 @@
       &::-webkit-scrollbar {
         display: none;
       }
+
+      @include mobile {
+        max-height: fit-content;
+      }
     }
     .chat {
       flex: 2;
@@ -276,7 +280,7 @@
             }
           }
           .messageContent {
-            max-width: 80%;
+            max-width: 100%;
             display: flex;
             flex-direction: column;
             gap: 10px;

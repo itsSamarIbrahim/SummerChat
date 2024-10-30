@@ -143,9 +143,14 @@
           gap: 10px;
           justify-content: center;
           align-items: center;
+          flex-grow: 1;
 
-          @include mobile {
-            span {
+          span {
+            max-width: 80px;  // Set max-width to fit navbar
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include mobile {
               display: none;
             }
           }
@@ -200,6 +205,16 @@
                 color: #ddddf7;
               }
             }
+          }
+        }
+        @include mobile {
+          .user {
+            flex-direction: column; // Stack elements in mobile view
+            max-width: 100%; // Ensure it doesn’t exceed width
+          }
+        
+          span {
+            display: none; // Hide name on mobile
           }
         }
       }

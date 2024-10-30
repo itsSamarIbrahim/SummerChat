@@ -204,6 +204,9 @@
         }
 
         .userChatInfo {
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
           span {
             font-size: 18px;
             font-weight: 500;
@@ -212,6 +215,9 @@
             font-size: 14px;
             color: lightgray;
             margin: 0;
+            white-space: nowrap;  /* Prevent text wrapping */
+            overflow: hidden;     /* Hide overflowed content */
+            text-overflow: ellipsis; /* Show ellipsis for overflowed text */
           }
         }
       }

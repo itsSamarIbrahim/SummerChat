@@ -110,11 +110,15 @@
     @include tablet {
      width: 90%;
     }
+    @include mobile {
+      width: 80%;
+    }
 
     .sidebar {
-      flex: 1;
+      flex: 0.5;
       background-color: #3e3c61;
       position: relative;
+      width: 30%;
 
       .navbar {
         display: flex;
@@ -140,12 +144,22 @@
           justify-content: center;
           align-items: center;
 
+          @include mobile {
+            span {
+              display: none;
+            }
+          }
+
           img {
             background-color: #ddddf7;
             height: 24px;
             width: 24px;
             border-radius: 50%;
             object-fit: cover;
+          }
+          @include mobile {
+            justify-content: center;
+            align-items: center;
           }
 
           button {
@@ -159,6 +173,28 @@
             @include tablet {
               position: absolute;
               bottom: 10px;
+            }
+            @include laptop {
+              position: absolute;
+              bottom: 10px;
+              display: flex;
+              left: 10px;
+            }
+            // Mobile view: change to "X" icon
+            @include mobile {
+              font-size: 0; // Hides the button text
+              padding: 0;
+              width: 24px;
+              height: 24px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              &::before {
+                content: "✕"; // "X" symbol
+                font-size: 18px;
+                color: #ddddf7;
+              }
             }
           }
         }
@@ -178,6 +214,13 @@
             &::placeholder {
               color: lightgray;
             }
+          }
+        }
+
+        @include mobile {
+          input {
+            display: none;
+
           }
         }
       }

@@ -28,15 +28,15 @@ responsive, mobile-friendly layout.
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/SummerChat.git```
+   git clone https://github.com/yourusername/SummerChat.git
 
 2. Navigate to the project directory:
     ```bash
-    cd SummerChat```
+    cd SummerChat
 
 3. Install dependencies:
     ```bash
-    npm install```
+    npm install
 
 4. Set up environment variables by creating a .env file in the root directory.
     Populate it with your Firebase credentials:
@@ -46,11 +46,11 @@ responsive, mobile-friendly layout.
     REACT_APP_PROJECT_ID=your_project_id
     REACT_APP_STORAGE_BUCKET=your_storage_bucket
     REACT_APP_MESSAGING_SENDER_ID=your_messaging_sender_id
-    REACT_APP_APP_ID=your_app_id```
+    REACT_APP_APP_ID=your_app_id
 
 5. Run the app in development mode:
     ```bash
-    npm start```
+    npm start
 
 
 ### File Descriptions
@@ -288,12 +288,12 @@ To run the project, see the `package.json` section below for available scripts
     and dependencies.
 
 ### Contributing
-    Contributions are welcome! Please fork the repository, create a feature
-    branch, and submit a pull request for review.
+Contributions are welcome! Please fork the repository, create a feature
+branch, and submit a pull request for review.
 
 ### License
-    This project is licensed under the MIT License.
+This project is licensed under the MIT License.
 
 ### About the Author
-    Developed by [Samar Ibrahim](https://github.com/itssamaribrahim), passionate about building efficient and user-friendly
-    web applications.
+Developed by [Samar Ibrahim](https://github.com/itssamaribrahim), passionate about building efficient and user-friendly
+web applications.

@@ -6,7 +6,7 @@ Firebase, designed for seamless communication and an intuitive user interface.
 Users can send text and image messages, initiate new chats, and enjoy a
 responsive, mobile-friendly layout.
 
->>> Visit: ![Summer Chat](https://summerchat-ed562.web.app/)
+>>> Visit: [Summer Chat](https://summerchat-ed562.web.app/)
 
 ### Key Features
 - **Real-Time Messaging**: Instant communication with Firebase's real-time
@@ -295,5 +295,5 @@ To run the project, see the `package.json` section below for available scripts
     This project is licensed under the MIT License.
 
 ### About the Author
-    Developed by ![Samar Ibrahim](https://github.com/itssamaribrahim), passionate about building efficient and user-friendly
+    Developed by [Samar Ibrahim](https://github.com/itssamaribrahim), passionate about building efficient and user-friendly
     web applications.

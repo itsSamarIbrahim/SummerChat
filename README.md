@@ -52,7 +52,6 @@ responsive, mobile-friendly layout.
     ```bash
     npm start
 
-
 ### File Descriptions
 
 #### `src/App.jsx`

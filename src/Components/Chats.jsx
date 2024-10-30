@@ -1,6 +1,6 @@
 // /src/Components/Chats.jsx
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthContext } from '../context/AuthContext';
@@ -8,9 +8,9 @@ import { ChatContext } from '../context/ChatContext';
 
 const Chats = () => {
   const [chats, setChats] = useState([]);
-
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
+  const selectedChatRef = useRef(null); // Ref for the selected chat
 
   useEffect(() => {
     const getChats = () => {
@@ -28,6 +28,9 @@ const Chats = () => {
 
   const handleSelect = (u) => {
     dispatch({ type: "CHANGE_USER", payload: u });
+    if (selectedChatRef.current) {
+      selectedChatRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   };
 
   return (
@@ -39,6 +42,7 @@ const Chats = () => {
             className="userChat"
             key={chat[0]}
             onClick={() => handleSelect(chat[1].userInfo)}
+            ref={chat[1].userInfo.uid === currentUser.uid ? selectedChatRef : null}
           >
             <img src={chat[1].userInfo.photoURL} alt="" />
             <div className="userChatInfo">

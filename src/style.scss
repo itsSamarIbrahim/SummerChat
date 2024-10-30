@@ -189,7 +189,8 @@
         gap: 10px;
         color: white;
         cursor: pointer;
-        padding-left: 8px;
+        padding-left: 15px;
+        transition: background-color 0.12s ease;
 
         &:hover {
           background-color: #2f2d52;
@@ -213,6 +214,18 @@
             margin: 0;
           }
         }
+      }
+    }
+    .chats {
+      max-height: 400px;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+
+      /* Hide scrollbar for Chrome, Safari, and Opera */
+      &::-webkit-scrollbar {
+        display: none;
       }
     }
     .chat {

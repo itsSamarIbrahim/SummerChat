@@ -1,5 +1,10 @@
 // /src/style.scss
 
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
 @mixin mobile {
   @media screen and (max-width: 480px) {
     @content;

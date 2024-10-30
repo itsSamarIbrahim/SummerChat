@@ -16,7 +16,7 @@
   }
 }
 @mixin laptop {
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1400px) {
     @content;
   }
 }
@@ -173,6 +173,7 @@
             @include tablet {
               position: absolute;
               bottom: 10px;
+              left: 10px;
             }
             @include laptop {
               position: absolute;
@@ -182,6 +183,9 @@
             }
             // Mobile view: change to "X" icon
             @include mobile {
+              position: absolute;
+              bottom: 10px;
+              left: 10px;
               font-size: 0; // Hides the button text
               padding: 0;
               width: 24px;
